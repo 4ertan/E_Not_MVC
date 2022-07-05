@@ -1,4 +1,4 @@
-# e-not asp.net Mvc
+# asp.net ile Mvc yapısını kullanarak e-not 
  
 ![Giris](https://user-images.githubusercontent.com/47614414/177340833-582b24e6-64d1-497f-962e-65b3dff26cd4.PNG)
 ![ogr](https://user-images.githubusercontent.com/47614414/177340850-101a5b40-ef54-4031-afe0-752d32f1f7fe.PNG)
