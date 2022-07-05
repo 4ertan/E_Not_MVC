@@ -1,0 +1,60 @@
+﻿@using OgrenciNotMvc.Models.EntityFramework;
+@model List<TBLOGRENCILER>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a href="/Ogrenci/YeniOgrenci" class="btn btn-primary">Yeni Öğrenci Kaydı</a>
+<br />
+<br />
+<table id="tbl1" class="table table-hover">
+    <thead>
+        <tr>
+            <th>ÖĞRENCİ NO</th>
+            <th>ÖĞRENCİ ADI SOYADI</th>
+            <th>ÖĞRENCİ CİNSİYETİ</th>
+            <th>ÖĞRENCİ KULÜBÜ</th>
+            <th>İŞLEMLER</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ogr in Model)
+        {
+            <tr>
+                <td>@ogr.OGRENCIID</td>
+                <td>@ogr.OGRAD @ogr.OGRSOYAD.ToUpper()</td>
+                <td>@ogr.OGRCINSIYET</td>
+                <td>@ogr.TBLKULUPLER.KULUPAD</td>
+                <td>
+                    <a href="/Ogrenci/Sil/@ogr.OGRENCIID" class="btn btn-danger">Sil</a>&nbsp;
+                    <a href="/Ogrenci/OGetir/@ogr.OGRENCIID" class="btn btn-success">Güncelle</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $('#tbl1').DataTable({
+        language: {
+            info: "_TOTAL_ kayıttan _START_ - _END_ kayıt gösteriliyor.",
+            infoEmpty: "Gösterilecek hiç kayıt yok.",
+            loadingRecords: "Kayıtlar yükleniyor.",
+            lengthMenu: "Sayfada _MENU_ kayıt göster",
+            zeroRecords: "Tablo boş",
+            search: "Arama:",
+            infoFiltered: "(toplam _MAX_ kayıttan filtrelenenler)",
+
+
+            paginate: {
+                first: "İlk",
+                previous: "Önceki",
+                next: "Sonraki",
+                last: "Son"
+            },
+        }
+    });
+</script>

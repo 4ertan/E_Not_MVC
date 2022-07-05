@@ -1,0 +1,53 @@
+﻿@using OgrenciNotMvc.Models.EntityFramework;
+@model List<TBLKULUPLER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a href="/Kulupler/YeniKulup" class="btn btn-primary">Yeni Kulüp Kaydı</a>
+<br />
+<br />
+<table id="tbl1" class="table table-hover">
+    <thead>
+    <tr>
+        <th>KULÜP ADI</th>
+        <th>İŞLEMLER</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var klp in Model)
+        {
+            <tr>
+
+                <td>@klp.KULUPAD</td>
+                <td>
+                    <a href="/Kulupler/Sil/@klp.KULUPID" class="btn btn-danger">Sil</a> &nbsp;
+                    <a href="/Kulupler/KulupGetir/@klp.KULUPID" class="btn btn-success">Güncelle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $('#tbl1').DataTable({
+        language: {
+            info: "_TOTAL_ kayıttan _START_ - _END_ kayıt gösteriliyor.",
+            infoEmpty: "Gösterilecek hiç kayıt yok.",
+            loadingRecords: "Kayıtlar yükleniyor.",
+            lengthMenu: "Sayfada _MENU_ kayıt göster",
+            zeroRecords: "Tablo boş",
+            search: "Arama:",
+            infoFiltered: "(toplam _MAX_ kayıttan filtrelenenler)",
+
+
+            paginate: {
+                first: "İlk",
+                previous: "Önceki",
+                next: "Sonraki",
+                last: "Son"
+            },
+        }
+    });
+</script>
+

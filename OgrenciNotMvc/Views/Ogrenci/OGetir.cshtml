@@ -1,0 +1,61 @@
+﻿@model OgrenciNotMvc.Models.EntityFramework.TBLOGRENCILER
+@{
+    ViewBag.Title = "OGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Guncelle", "Ogrenci", FormMethod.Post))
+{
+    
+<div>
+    <h3> Öğrenci Bilgileri Güncelle </h3> 
+    <br />
+</div>
+    <div class="form-group">
+        <b>ÖĞRENCİ ADI</b>
+        
+        <br />
+        @Html.TextBoxFor(m => m.OGRAD, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <b>ÖĞRENCİ SOYADI</b>
+        <br />
+        @Html.TextBoxFor(m => m.OGRSOYAD, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <b>ÖĞRENCİ FOTOĞRAFI</b>
+        <br />
+        @Html.TextBoxFor(m => m.OGRFOTO, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <b>ÖĞRENCİ KULÜP</b>
+        <br />
+        
+        @Html.TextBoxFor(m => m.OGRKULUP, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        <b>ÖĞRENCİ CİNSİYET</b>
+        <br /><br />   
+        &nbsp;  &nbsp;  &nbsp;  &nbsp;
+        <b>Erkek</b>
+        &nbsp;
+        <input name="OGRCINSIYET"
+               type="radio"
+               value="Erkek" />
+        &nbsp;  &nbsp;  &nbsp;  &nbsp;
+        <b>Kız</b>
+        &nbsp;
+        <input name="OGRCINSIYET"
+               type="radio"
+               value="Kız" />
+        <br /><br />
+
+        @*@Html.TextBoxFor(m => m.OGRCINSIYET, new { @class = "form-control" })*@
+    </div>
+    
+    @Html.HiddenFor(m => m.OGRENCIID)
+    <div style="margin-top:15px"><button class="btn btn-info">Güncelle</button></div>
+
+}
+

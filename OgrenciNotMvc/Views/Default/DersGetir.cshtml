@@ -1,0 +1,18 @@
+﻿@model OgrenciNotMvc.Models.EntityFramework.TBLDERSLER
+@{
+    ViewBag.Title = "DersGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Guncelle","Default",FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(m=>m.DERSAD)
+                    @Html.TextBoxFor(m=>m.DERSAD,new {@class="form-control" })
+                </div>
+                @Html.HiddenFor(m=>m.DERSID)
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Güncelle</button>
+    </div>
+            }
+

@@ -1,0 +1,65 @@
+﻿@using OgrenciNotMvc.Models.EntityFramework;
+@model List<TBLNOTLAR>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a href="/SınavNotları/YeniSinav" class="btn btn-primary">Yeni Sınav Kaydı</a>
+<br />
+<br />
+<table id="tbl1" class=" table table-hover">
+    <thead>
+        <tr>
+
+            <th>DERS</th>
+            <th>ÖĞRENCİ</th>
+            <th>SINAV 1</th>
+            <th>SINAV 2</th>
+            <th>SINAV 3</th>
+            <th>PROJE</th>
+            <th>ORTALAMA</th>
+            <th>DURUM</th>
+            <th>GÜNCELLE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var not in Model)
+        {
+            <tr>
+
+                <td>@not.TBLDERSLER.DERSAD</td>
+                <td>@not.TBLOGRENCILER.OGRAD @not.TBLOGRENCILER.OGRSOYAD.ToUpper()</td>
+                <td>@not.SINAV1</td>
+                <td>@not.SINAV2</td>
+                <td>@not.SINAV3</td>
+                <td>@not.PROJE</td>
+                <td>@not.ORTALAMA</td>
+                <td>@not.DURUM</td>
+                <td><a href="/SınavNotları/NotGetir/@not.NOTID" class="btn btn-warning">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<script>
+    $('#tbl1').DataTable({
+        language: {
+            info: "_TOTAL_ kayıttan _START_ - _END_ kayıt gösteriliyor.",
+            infoEmpty: "Gösterilecek hiç kayıt yok.",
+            loadingRecords: "Kayıtlar yükleniyor.",
+            lengthMenu: "Sayfada _MENU_ kayıt göster",
+            zeroRecords: "Tablo boş",
+            search: "Arama:",
+            infoFiltered: "(toplam _MAX_ kayıttan filtrelenenler)",
+
+
+            paginate: {
+                first: "İlk",
+                previous: "Önceki",
+                next: "Sonraki",
+                last: "Son"
+            },
+        }
+    });
+</script>

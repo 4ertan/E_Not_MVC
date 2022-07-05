@@ -1,0 +1,56 @@
+﻿@using OgrenciNotMvc.Models.EntityFramework;
+@model List<TBLDERSLER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a href="/Default/YeniDers" class="btn btn-primary">Yeni Ders Kaydı</a>
+<br />
+<br />
+<table id="tbl1" class="table table-hover">
+    <thead>
+        <tr>
+
+            <th>DERS ADI</th>
+            <th>İŞLEMLER</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var drs in Model)
+        {
+            <tr>
+
+                <td>@drs.DERSAD</td>
+                <td>
+                    <a href="/Default/Sil/@drs.DERSID" class="btn btn-danger">Sil</a>&nbsp;
+                    <a href="/Default/DersGetir/@drs.DERSID" class="btn btn-success">Güncelle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $('#tbl1').DataTable({
+        language: {
+            info: "_TOTAL_ kayıttan _START_ - _END_ kayıt gösteriliyor.",
+            infoEmpty: "Gösterilecek hiç kayıt yok.",
+            loadingRecords: "Kayıtlar yükleniyor.",
+            lengthMenu: "Sayfada _MENU_ kayıt göster",
+            zeroRecords: "Tablo boş",
+            search: "Arama:",
+            infoFiltered: "(toplam _MAX_ kayıttan filtrelenenler)",
+
+
+            paginate: {
+                first: "İlk",
+                previous: "Önceki",
+                next: "Sonraki",
+                last: "Son"
+            },
+        }
+    });
+</script>
+
+
+
